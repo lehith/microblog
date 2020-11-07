@@ -13,9 +13,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 
-
-
-
+# Запись последнего времени посещения для пользователя
 @app.before_request
 def before_request():
     if current_user.is_authenticated:
@@ -23,5 +21,4 @@ def before_request():
         db.session.commit()
 
 
-
-from app import routes, models
+from app import routes, models, errors, logger
