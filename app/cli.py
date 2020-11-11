@@ -16,7 +16,6 @@ def update():
     if os.system('pybabel update -i messages.pot -d app/translations'):
         raise RuntimeError('update command failed')
     os.remove('messages.pot')
-
 @translate.command()
 def compile():
     """Compile all languages."""

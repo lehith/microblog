@@ -2,7 +2,7 @@
     <tr>
         <td width="70px">
             <a href="{{ url_for('user', username=post.author.username) }}">
-                <img src="{{ post.author.avatar(70) }}" />
+                <img src="{{ post.author.avatar(70) }}"/>
             </a>
         </td>
         <td>
@@ -12,6 +12,12 @@
             {{ _('said') }} {{ moment(post.timestamp).fromNow() }}:
             <br>
             {{ post.body }}
+            {% if post.language and post.language != g.locale %}
+                <br><br>
+                <a href="#">{{ _('Translate') }}</a>
+            {% endif %}
         </td>
+
+
     </tr>
 </table>
